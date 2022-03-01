@@ -14,7 +14,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "ts-node-dev src/server.ts",
+    "start": "ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js --config ./src/config/database.ts"
   },
   "devDependencies": {

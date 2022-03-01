@@ -7,4 +7,12 @@ export class TypeOrmCategoriesRepository extends Repository<Category> implements
     async all() {
         return this.find();
     }
+
+    async findById(id: string): Promise<Category> {
+        return this.findOneOrFail(id);
+    }
+
+    async delete(category: Category): Promise<any> {
+        return super.delete({ id: category.id });
+    }
 }
