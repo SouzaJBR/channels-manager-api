@@ -14,9 +14,9 @@ export class LoginUseCase {
         const { email, password } = data;
 
         const user = await this.usersRepository.findByEmail(email);
-        
-        const isCredentialsValid = user && await bcrypt.compare(password, user.password);
-        if(isCredentialsValid)
+
+        const isCredentialsValid = user && (await bcrypt.compare(password, user.password));
+        if(!isCredentialsValid)
             throw new InvalidCredentialsError();
 
         const payload = {
