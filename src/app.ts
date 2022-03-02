@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(jwtValidationMiddleware.unless({ path: ['/login']}));
+app.use(jwtValidationMiddleware.unless({ path: ['/login', '/signup']}));
 app.use(router);
 
 export { app };
