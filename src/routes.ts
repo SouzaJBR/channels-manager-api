@@ -4,6 +4,7 @@ import { CreateCategoryController } from './use-cases/create-category/CreateCate
 import { DeleteCategoryController } from './use-cases/delete-category/DeleteCategoryController';
 import { DetailCategoryController } from './use-cases/detail-category/DetailCategoryController';
 import { ListCategoriesController } from './use-cases/list-categories/ListCategoriesController';
+import { LoginController } from './use-cases/login/LoginController';
 
 const router = Router();
 
@@ -26,5 +27,10 @@ router.get('/categories/:id', async (request, response) => {
     const detailCategoryController = container.resolve(DetailCategoryController);
     await detailCategoryController.handle(request, response);
 });
+
+router.post('/login', async (request, response) => {
+    const loginController = container.resolve(LoginController);
+    await loginController.handle(request, response);
+})
 
 export { router };
