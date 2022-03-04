@@ -1,1 +1,1 @@
-export const jwtTokenSecret = "segredosuperultramegaseguropodeconfiar";
+export const jwtTokenSecret = process.env.JWT_SECRET;
