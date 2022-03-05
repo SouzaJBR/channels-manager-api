@@ -5,7 +5,7 @@ import { container } from 'tsyringe';
 
 import { app } from "./app";
 import { createDbConnection } from './database/connection';
-import { Connection, ConnectionManager, getConnectionManager } from 'typeorm';
+import { Connection, getConnectionManager } from 'typeorm';
 import { TypeOrmCategoriesRepository } from './repositories/implementations/TypeOrmCategoriesRepository';
 import { ICategoriesRepository } from './repositories/ICategoriesRepository';
 import { IUsersRepository } from './repositories/IUsersRepository';

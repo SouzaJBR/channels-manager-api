@@ -4,6 +4,12 @@ import { parse } from 'pg-connection-string';
 const localConfig : ConnectionOptions = {
     type: 'sqlite',
     database: './.tmp/database.sqlite',
+    entities: ["src/entities/**.ts"],
+    migrations: ["src/database/migrations/**.ts"],
+    cli: {
+        migrationsDir: "./src/database/migrations",
+        entitiesDir: "./src/entities/**.ts"
+    },
 };
 
 const { host, database, port, user, password} = parse(process.env.DATABASE_URL || '');
@@ -15,16 +21,13 @@ const productionConfig: ConnectionOptions = {
     username: process.env.DATABASE_USER || user,
     password: process.env.DATABASE_PASSWORD || password,
     database: process.env.DATABASE_NAME || database,
+    entities: ["dist/entities/**.js"],
+    migrations: ["dist/database/migrations/**.js"],
 };
 
 const currentConfig = process.env.NODE_ENV === 'production' ? productionConfig : localConfig;
 
 const typeormConnectionOptions: ConnectionOptions = Object.assign({
-    migrations: ["./src/database/migrations/**.ts"],
-    entities: ["./src/entities/**.ts"],
-    cli: {
-        "migrationsDir": "./src/database/migrations"
-    },
     name: 'default'
 }, currentConfig);
 
