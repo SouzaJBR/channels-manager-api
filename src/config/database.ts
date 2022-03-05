@@ -24,7 +24,9 @@ const productionConfig: ConnectionOptions = {
     entities: ["dist/entities/**.js"],
     migrations: ["dist/database/migrations/**.js"],
     extra: {
-        ssl: true,
+        ssl: {
+            rejectUnauthorized: false,
+        }
     }
 };
 
