@@ -2,18 +2,16 @@ import { BaseController } from "@base/controllers/BaseController";
 import { Request, Response } from "express";
 import { ValidationChain } from "express-validator";
 import { inject, injectable } from "tsyringe";
-import { SignupRequestValidator } from "./SignupRequestValidator";
+import { validator } from "../login/LoginRequestValidator";
 import { SignupUseCase } from "./SignupUseCase";
 
 @injectable()
 export class SignupController extends BaseController {
-    constructor(@inject(SignupUseCase) private signupUseCase: SignupUseCase, @inject(SignupRequestValidator) private signupRequestValidator: SignupRequestValidator) {
+    constructor(@inject(SignupUseCase) private signupUseCase: SignupUseCase) {
         super();
     }
     
-    validate(): ValidationChain[] {
-        return this.signupRequestValidator.validator();
-    }
+    validationRules: ValidationChain[] = validator();
 
     async handle(request: Request, response: Response) {
         const { email, name, password } = request.body;
