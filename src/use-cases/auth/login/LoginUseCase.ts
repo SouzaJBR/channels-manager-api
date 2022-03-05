@@ -1,11 +1,10 @@
+import { createJwtToken } from "@src/authentication/signer";
+import { IUsersRepository } from "@src/repositories/IUsersRepository";
 import { inject, injectable } from "tsyringe";
-import bcrypt from 'bcrypt';
-import { createJwtToken } from "../../authentication/signer";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { InvalidCredentialsError } from "./errors/InvalidCredentialsError";
 import { LoginRequestDTO } from "./LoginRequestDTO";
-import { User } from "../../entities/User";
 
+import bcrypt from 'bcrypt';
 @injectable()
 export class LoginUseCase {
     constructor(@inject('UsersRepository') private usersRepository: IUsersRepository) {}

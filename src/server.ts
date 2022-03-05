@@ -10,6 +10,8 @@ import { TypeOrmCategoriesRepository } from './repositories/implementations/Type
 import { ICategoriesRepository } from './repositories/ICategoriesRepository';
 import { IUsersRepository } from './repositories/IUsersRepository';
 import { TypeOrmUsersRepository } from './repositories/implementations/TypeOrmUsersRepository';
+import { ValidationChain } from 'express-validator';
+import { LoginRequestValidator } from './use-cases/auth/login/LoginRequestValidator';
 
 const PORT = process.env.PORT || '3333';
 

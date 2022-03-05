@@ -1,5 +1,5 @@
+import { ICategoriesRepository } from "@src/repositories/ICategoriesRepository";
 import { inject, injectable } from "tsyringe";
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 import { DeleteCategoryRequestDTO } from "./DeleteCategoryRequestDTO";
 
 @injectable()
