@@ -4,7 +4,6 @@ import { Request, Response } from "express";
 import { UnauthorizedError } from "express-jwt";
 import { EntityNotFoundError } from "typeorm";
 
-
 export const errorHandlerMiddleware = (err: Error, request: Request, response: Response, next) => {
     if(err instanceof EntityNotFoundError) {
         response.status(404).json({
