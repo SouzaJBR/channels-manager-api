@@ -1,10 +1,12 @@
-import { inject, injectable } from "tsyringe";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { EmailAlreadyRegistredError } from "./errors/EmailAlreadyRegistredError";
-import { SignupRequestDTO } from "./SignupRequestDTO";
 
+
+import { User } from '@entities/User';
+import { IUsersRepository } from '@src/repositories/IUsersRepository';
 import bcrypt from 'bcrypt';
-import { User } from "../../entities/User";
+import { inject, injectable } from 'tsyringe';
+import { EmailAlreadyRegistredError } from './errors/EmailAlreadyRegistredError';
+import { SignupRequestDTO } from './SignupRequestDTO';
+
 
 @injectable()
 export class SignupUseCase {

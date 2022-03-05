@@ -14,7 +14,11 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": "./",
         "paths": {
-          "@src/*": ["./src/*"],
+          "@entities/*": ["./src/entities/*"],
+          "@use-cases/*": ["./src/use-cases/*"],
+          "@base/*": ["./src/base/*"],
+          "@middlewares/*": ["./src/middlewares/*"],
+          "@src/*": ["./src/*"]
         },
         "rootDirs": [
           "./src"
