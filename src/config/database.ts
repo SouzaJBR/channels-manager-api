@@ -23,6 +23,9 @@ const productionConfig: ConnectionOptions = {
     database: process.env.DATABASE_NAME || database,
     entities: ["dist/entities/**.js"],
     migrations: ["dist/database/migrations/**.js"],
+    extra: {
+        ssl: true,
+    }
 };
 
 const currentConfig = process.env.NODE_ENV === 'production' ? productionConfig : localConfig;
