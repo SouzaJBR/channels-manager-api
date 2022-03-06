@@ -1,18 +1,18 @@
-import { ConnectionOptions } from "typeorm";
+import { ConnectionOptions } from 'typeorm';
 import { parse } from 'pg-connection-string';
 
 const localConfig : ConnectionOptions = {
     type: 'sqlite',
     database: './.tmp/database.sqlite',
-    entities: ["src/entities/**.ts"],
-    migrations: ["src/database/migrations/**.ts"],
+    entities: [ 'src/entities/**.ts' ],
+    migrations: [ 'src/database/migrations/**.ts' ],
     cli: {
-        migrationsDir: "./src/database/migrations",
-        entitiesDir: "./src/entities/**.ts"
+        migrationsDir: './src/database/migrations',
+        entitiesDir: './src/entities/**.ts'
     },
 };
 
-const { host, database, port, user, password} = parse(process.env.DATABASE_URL || '');
+const { host, database, port, user, password } = parse(process.env.DATABASE_URL || '');
 
 const productionConfig: ConnectionOptions = {
     type: 'postgres',
@@ -21,8 +21,8 @@ const productionConfig: ConnectionOptions = {
     username: process.env.DATABASE_USER || user,
     password: process.env.DATABASE_PASSWORD || password,
     database: process.env.DATABASE_NAME || database,
-    entities: ["dist/entities/**.js"],
-    migrations: ["dist/database/migrations/**.js"],
+    entities: [ 'dist/entities/**.js' ],
+    migrations: [ 'dist/database/migrations/**.js' ],
     extra: {
         ssl: {
             rejectUnauthorized: false,

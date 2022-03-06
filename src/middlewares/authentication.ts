@@ -3,5 +3,5 @@ import { jwtTokenSecret } from '../config/jwt';
 
 export const jwtValidationMiddleware = jwt({
     secret: jwtTokenSecret,
-    algorithms: ['HS256']
+    algorithms: [ 'HS256' ]
 });
