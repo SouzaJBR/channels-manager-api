@@ -1,5 +1,5 @@
-import { createJwtToken } from "@src/authentication/signer";
-import { IUsersRepository } from "@src/repositories/IUsersRepository";
+import { createJwtToken } from "../../../authentication/signer";
+import { IUsersRepository } from "../../../repositories/IUsersRepository";
 import { inject, injectable } from "tsyringe";
 import { InvalidCredentialsError } from "./errors/InvalidCredentialsError";
 import { LoginRequestDTO } from "./LoginRequestDTO";

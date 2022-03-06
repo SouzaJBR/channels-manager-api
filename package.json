@@ -21,7 +21,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "dev": "ts-node-dev --respawn --ignore-watch node_modules -r tsconfig-paths/register src/server.ts",
+    "dev": "ts-node-dev --respawn --ignore-watch node_modules src/server.ts",
     "start": "node dist/server.js",
     "build": "tsc --build",
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js --config ./src/config/database.ts"
@@ -36,7 +36,6 @@
     "@types/uuid": "^8.3.4",
     "sqlite3": "^5.0.2",
     "ts-node-dev": "^1.1.8",
-    "tsconfig-paths": "^3.13.0",
     "typescript": "^4.5.5"
   }
 }

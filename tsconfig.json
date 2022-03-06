@@ -13,13 +13,6 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "baseUrl": "./",
-        "paths": {
-          "@entities/*": ["./src/entities/*"],
-          "@use-cases/*": ["./src/use-cases/*"],
-          "@base/*": ["./src/base/*"],
-          "@middlewares/*": ["./src/middlewares/*"],
-          "@src/*": ["./src/*"]
-        },
         "rootDirs": [
           "./src"
         ],

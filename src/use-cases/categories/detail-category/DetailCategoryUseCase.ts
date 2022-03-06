@@ -1,4 +1,4 @@
-import { ICategoriesRepository } from "@src/repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "../../../repositories/ICategoriesRepository";
 import { Request, Response } from "express";
 import { inject, injectable } from "tsyringe";
 import { DetailCategoryRequestDTO } from "./DetailCategoryRequestDTO";

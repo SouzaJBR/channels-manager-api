@@ -1,5 +1,5 @@
-import { BusinessError } from "@base/errors/BusinessError";
-import { ValidationError } from "@base/errors/ValidationError";
+import { BusinessError } from "../base/errors/BusinessError";
+import { ValidationError } from "../base/errors/ValidationError";
 import { Request, Response } from "express";
 import { UnauthorizedError } from "express-jwt";
 import { EntityNotFoundError } from "typeorm";

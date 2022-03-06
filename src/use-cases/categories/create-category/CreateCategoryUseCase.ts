@@ -1,5 +1,5 @@
-import { Category } from "@entities/Category";
-import { ICategoriesRepository } from "@src/repositories/ICategoriesRepository";
+import { Category } from "../../../entities/Category";
+import { ICategoriesRepository } from "../../../repositories/ICategoriesRepository";
 import { inject, injectable } from "tsyringe";
 import { ICreateCategoryRequestDTO } from "./CreateCategoryDTO";
 

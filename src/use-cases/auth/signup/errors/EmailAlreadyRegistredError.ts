@@ -1,4 +1,4 @@
-import { ValidationError } from "@base/errors/ValidationError";
+import { ValidationError } from "../../../../base/errors/ValidationError";
 
 export class EmailAlreadyRegistredError extends ValidationError {
     constructor() {

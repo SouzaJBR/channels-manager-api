@@ -1,7 +1,7 @@
 
 
-import { User } from '@entities/User';
-import { IUsersRepository } from '@src/repositories/IUsersRepository';
+import { User } from '../../../entities/User';
+import { IUsersRepository } from '../../../repositories/IUsersRepository';
 import bcrypt from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 import { EmailAlreadyRegistredError } from './errors/EmailAlreadyRegistredError';

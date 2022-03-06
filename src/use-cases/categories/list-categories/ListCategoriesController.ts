@@ -1,4 +1,4 @@
-import { BaseController } from "@base/controllers/BaseController";
+import { BaseController } from "../../../base/controllers/BaseController";
 import { Request, Response } from "express";
 import { inject, injectable } from "tsyringe";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";

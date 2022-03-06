@@ -1,4 +1,4 @@
-import { BusinessError } from "@base/errors/BusinessError";
+import { BusinessError } from "../../../../base/errors/BusinessError";
 
 export class InvalidCredentialsError extends BusinessError {
     constructor() {

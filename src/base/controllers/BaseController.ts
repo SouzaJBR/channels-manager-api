@@ -1,6 +1,6 @@
-import { ValidationError } from "@base/errors/ValidationError";
 import { Request, Response } from "express";
 import { ValidationChain, validationResult } from "express-validator";
+import { ValidationError } from "../errors/ValidationError";
 
 export abstract class BaseController {
     validationRules: ValidationChain[] = [];
