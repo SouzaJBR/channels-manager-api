@@ -35,22 +35,50 @@ export class CreateChannel1649004697976 implements MigrationInterface {
                     length: '256',
                 },
                 {
-                    name: 'categoryId',
-                    type: 'uuid',
-                    isNullable: false
+                    name: 'created_at',
+                    type: 'timestamp',
+                    default: 'now()',
+                },
+                {
+                    name: 'updated_at',
+                    type: 'timestamp',
+                    default: 'now()'
                 }
             ]
         }));
 
-        await queryRunner.createForeignKey("channels", new TableForeignKey({
-            columnNames: ['categoryId'],
-            referencedColumnNames: ['id'],
-            referencedTableName: 'categories'
-        }))
+        await queryRunner.createTable(new Table({
+            name: 'channels_categories',
+            columns: [
+                {
+                    name: 'channelId',
+                    type: 'uuid',
+                    isPrimary: true,
+                },
+                {
+                    name: 'categoryId',
+                    type: 'uuid',
+                    isPrimary: true,
+                }
+            ],
+            foreignKeys: [
+                {
+                    columnNames: ['categoryId'],
+                    referencedTableName: 'categories',
+                    referencedColumnNames: ['id']
+                },
+                {
+                    columnNames: ['channelId'],
+                    referencedTableName: 'channels',
+                    referencedColumnNames: ['id'],
+                }
+            ]
+        }));
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('channels');
+        await queryRunner.dropTable('channels_categories');
     }
 
 }
