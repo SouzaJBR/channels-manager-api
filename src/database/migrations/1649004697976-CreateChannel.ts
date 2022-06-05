@@ -65,12 +65,14 @@ export class CreateChannel1649004697976 implements MigrationInterface {
                 {
                     columnNames: ['categoryId'],
                     referencedTableName: 'categories',
-                    referencedColumnNames: ['id']
+                    referencedColumnNames: ['id'],
+                    onDelete: 'CASCADE'
                 },
                 {
                     columnNames: ['channelId'],
                     referencedTableName: 'channels',
                     referencedColumnNames: ['id'],
+                    onDelete: 'CASCADE'
                 }
             ]
         }));

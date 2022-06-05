@@ -10,6 +10,7 @@ import { CreateChannelController } from "./use-cases/channels/create-channel/Cre
 import { Router } from "express";
 import { container } from "tsyringe";
 import { ListChannelsController } from "./use-cases/channels/list-channels/ListChannelsController";
+import { DeleteChannelController } from "./use-cases/channels/delete-channel/DeleteChannelController";
 
 const router = Router();
 
@@ -26,7 +27,12 @@ const channels = () => {
     router.get('/', async (request, response, next) => {
         const controller = container.resolve<BaseController>(ListChannelsController);
         return controller.execute(request, response, next);
-    })
+    });
+
+    router.delete('/:id', async (request, response, next) => {
+        const controller = container.resolve<BaseController>(DeleteChannelController);
+        return controller.execute(request, response, next);
+    });
 
     return router;
 }

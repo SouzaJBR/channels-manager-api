@@ -5,25 +5,25 @@ import { Category } from './Category';
 @Entity('channels')
 export class Channel {
     @PrimaryColumn()
-    id: string;
+        id: string;
 
     @Column()
-    name: string;
+        name: string;
 
     @CreateDateColumn({ name: 'created_at' })
-    createdAt?: Date;
+        createdAt?: Date;
 
     @UpdateDateColumn({ name: 'updated_at' })
-    updatedAt?: Date;
+        updatedAt?: Date;
 
     @Column()
-    slug: string;
+        slug: string;
 
     @Column()
-    number: number;
+        number: number;
 
     @Column()
-    logoUrl: string;
+        logoUrl: string;
 
     @ManyToMany(() => Category)
     @JoinTable({
@@ -37,7 +37,7 @@ export class Channel {
             referencedColumnName: 'id',
         }
     })
-    categories: Category[];
+        categories: Category[];
 
     constructor(props: Omit<Channel, 'id'>, id?: string) {
         Object.assign(this, props);
