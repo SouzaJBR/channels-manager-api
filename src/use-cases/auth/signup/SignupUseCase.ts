@@ -14,8 +14,6 @@ export class SignupUseCase {
 
     async execute(data: SignupRequestDTO) {
         const { email, password, name} = data;
-
-        console.log(data);
         
         const registredUser = await this.usersRepository.findByEmail(email);
         if(registredUser)

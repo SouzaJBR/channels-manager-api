@@ -9,9 +9,9 @@ export const errorHandlerMiddleware = (err: Error, _request: Request, response: 
     if(err instanceof EntityNotFoundError) {
         response.status(404).json({
             success: false,
-            message: 'Not found',
+            message: err.message,
         });
-    } else if (err instanceof ValidationError) {
+    } else if (err instanceof ValidationError || err instanceof SyntaxError) {
         response.status(400).json({
             success: false,
             message: err.message,

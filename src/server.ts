@@ -10,6 +10,8 @@ import { TypeOrmCategoriesRepository } from './repositories/implementations/Type
 import { ICategoriesRepository } from './repositories/ICategoriesRepository';
 import { IUsersRepository } from './repositories/IUsersRepository';
 import { TypeOrmUsersRepository } from './repositories/implementations/TypeOrmUsersRepository';
+import { IChannelsRepository } from './repositories/IChannelsRepository';
+import { TypeOrmChannelssRepository } from './repositories/implementations/TypeOrmChannelsRepository';
 
 const PORT = process.env.PORT || '3333';
 
@@ -26,6 +28,11 @@ const setupServer = async () => {
     container.register<IUsersRepository>('UsersRepository', { useFactory: (_) => {
         const connection = container.resolve<Connection>('database-connection');
         return connection.getCustomRepository(TypeOrmUsersRepository);
+    }});
+
+    container.register<IChannelsRepository>('ChannelsRepository', { useFactory: (_) => {
+        const connection = container.resolve<Connection>('database-connection');
+        return connection.getCustomRepository(TypeOrmChannelssRepository);
     }})
 
     app.listen(PORT, () => console.log(`server is up at the port ${PORT}...`));
