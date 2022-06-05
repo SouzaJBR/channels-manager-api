@@ -9,6 +9,7 @@ import { ListCategoriesController } from "./use-cases/categories/list-categories
 import { CreateChannelController } from "./use-cases/channels/create-channel/CreateChannelController";
 import { Router } from "express";
 import { container } from "tsyringe";
+import { ListChannelsController } from "./use-cases/channels/list-channels/ListChannelsController";
 
 const router = Router();
 
@@ -21,6 +22,11 @@ const channels = () => {
         const controller = container.resolve<BaseController>(CreateChannelController);
         return controller.execute(request, response, next);
     });
+
+    router.get('/', async (request, response, next) => {
+        const controller = container.resolve<BaseController>(ListChannelsController);
+        return controller.execute(request, response, next);
+    })
 
     return router;
 }
